@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 import pl.devfoundry.unittestingjava.Account;
 import pl.devfoundry.unittestingjava.Address;
 
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -39,29 +38,19 @@ class AccountTest {
     void newlyCreatedAccountShouldNotHaveDefaultDeliveryAddressSet(){
         Account account = new Account();
 
-        Address address = account.getDefaultDeliveryAddress();
+        Address address = account.getDefaultDeliveryAdress();
 
         assertNull(address);
-    }
-
-
-
-    @Test
-    void givenAccountWhenCreatedThenNotActivate(){
-        Account newAccount = new Account();
-
-        assertFalse(newAccount.isActive(), "Check if new account is not active");
-        assertThat
+        assertThat(address, nullValue());
     }
     @Test
-    void AccountShouldNotBeActiveAfterActivation()
-    {
-
-        Account newAccount = new Account();
-
-        newAccount.isActive();
-
-        assertTrue(newAccount.isActive());
+    void defaultDeliveryAddressShouldNotBeNullAfterBeingSet(){
+        Address address = new Address("Kraków", "67c");
+        Account account = new Account();
+        account.setDefaultDeliveryAdress(address);
+        Address defaultAddress = account.getDefaultDeliveryAdress();
+        assertNotNull(defaultAddress);
     }
+
     }
 

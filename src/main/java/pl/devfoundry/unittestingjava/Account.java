@@ -2,7 +2,7 @@ package pl.devfoundry.unittestingjava;
 
 public class Account {
     private boolean active;
-    private Address defaultDeliveryAdress;
+    private Address defaultDeliveryAddress;
 
     public Account()
     {
@@ -11,7 +11,11 @@ public class Account {
 
     public Address getDefaultDeliveryAdress()
     {
-        return defaultDeliveryAdress;
+        return defaultDeliveryAddress;
+    }
+    public void setDefaultDeliveryAdress(Address defaultDeliveryAddress)
+    {
+        defaultDeliveryAddress =  defaultDeliveryAddress;
     }
 
     public void activate()
