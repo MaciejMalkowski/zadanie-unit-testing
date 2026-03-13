@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import pl.devfoundry.unittestingjava.Account;
 import pl.devfoundry.unittestingjava.Address;
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +19,7 @@ class AccountTest {
 
         assertThat(newAccount.isActive(), equalTo(false));
 
-        assertThat(newAccount.isActive(), is(false));
+        assertThat(newAccount.isActive()).isFalse();
 
     }
 
@@ -31,7 +30,7 @@ class AccountTest {
         newAccount.activate();
 
         assertTrue(newAccount.isActive());
-        assertThat(newAccount.isActive(), equalTo(true));
+        assertThat(newAccount.isActive()).isTrue();
     }
 
     @Test
@@ -41,7 +40,7 @@ class AccountTest {
         Address address = account.getDefaultDeliveryAdress();
 
         assertNull(address);
-        assertThat(address, nullValue());
+        assertThat(address).isNull();
     }
     @Test
     void defaultDeliveryAddressShouldNotBeNullAfterBeingSet(){
@@ -50,7 +49,10 @@ class AccountTest {
         account.setDefaultDeliveryAdress(address);
         Address defaultAddress = account.getDefaultDeliveryAdress();
         assertNotNull(defaultAddress);
+        assertThat(defaultAddress).isNotNull();
     }
 
-    }
+
+
+}
 
