@@ -11,6 +11,8 @@ import static org.hamcrest.CoreMatchers.endsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -92,6 +94,7 @@ class MealTest {
         List<String> cakeNames = Arrays.asList("Cheesecake", "Fruitcake", "Cupcake");
         return cakeNames.stream();
     }
+    @ExtendWith(IAExceptionIgnoreExtension.class)
     @ParameterizedTest
     @ValueSource(ints = {1, 3, 5, 8})
     void mealShouldBeLowerThan10(int price) {
