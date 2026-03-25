@@ -1,4 +1,4 @@
-package pl.devfoundry.unittestingjava;
+package pl.devfoundry.testing;
 
 import java.util.Objects;
 

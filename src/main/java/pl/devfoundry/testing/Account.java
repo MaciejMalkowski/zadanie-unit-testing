@@ -1,4 +1,4 @@
-package pl.devfoundry.unittestingjava;
+package pl.devfoundry.testing;
 
 public class Account {
     private boolean active;
@@ -7,6 +7,18 @@ public class Account {
     public Account()
     {
         this.active = false;
+    }
+
+    public Account(Address defaultDeliveryAddress) {
+        this.defaultDeliveryAddress = defaultDeliveryAddress;
+        if(defaultDeliveryAddress != null)
+        {
+            activate();
+        }
+        else
+        {
+            this.active = false;
+        }
     }
 
     public Address getDefaultDeliveryAdress()

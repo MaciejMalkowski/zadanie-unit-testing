@@ -1,9 +1,6 @@
 package pl.devfoundry.testing;
 
 import org.junit.jupiter.api.*;
-import pl.devfoundry.unittestingjava.Meal;
-import pl.devfoundry.unittestingjava.Order;
-import pl.devfoundry.unittestingjava.OrderBackup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,7 +23,7 @@ public class OrderBackupTest {
 
     @AfterEach
     void appendAtTheEndOfTheLine() throws IOException {
-        orderBackup.getWriter().append("backed up")
+        orderBackup.getWriter().append("backed up");
     }
 
     @Test

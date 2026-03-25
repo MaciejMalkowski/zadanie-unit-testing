@@ -1,4 +1,4 @@
-package pl.devfoundry.unittestingjava;
+package pl.devfoundry.testing;
 
 public class Address {
     private String street;
