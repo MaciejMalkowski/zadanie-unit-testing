@@ -12,6 +12,6 @@ public class BeforeAfterExtension implements BeforeEachCallback, AfterEachCallba
     }
     @Override
     public void afterEach(ExtensionContext extensionContext) throws Exception {
-        System.out.println("Inside before each extension");
+        System.out.println("Inside after each extension");
     }
 }

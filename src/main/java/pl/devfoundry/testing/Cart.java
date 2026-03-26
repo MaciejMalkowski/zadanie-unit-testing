@@ -7,6 +7,11 @@ public class Cart {
 
     private List<Order> orders = new ArrayList<>();
 
+    List<Order> getOrders()
+    {
+        return orders;
+    }
+
     public void addOrderToCart(Order order)
     {
         this.orders.add(order);
@@ -30,6 +35,4 @@ public class Cart {
         clearCart();
     }
 
-    public String getOrders() {
-    }
 }

@@ -1,8 +1,11 @@
 package pl.devfoundry.testing;
 
+import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -11,7 +14,9 @@ import static org.hamcrest.CoreMatchers.endsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
+import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -97,11 +102,22 @@ class MealTest {
     @ExtendWith(IAExceptionIgnoreExtension.class)
     @ParameterizedTest
     @ValueSource(ints = {1, 3, 5, 8})
-    void mealShouldBeLowerThan10(int price) {
+    void mealShouldBeLowerThan10(int price) throws IOException {
         if(price > 5)
         {
-            throw new IllegalArgumentException();
+            throw new IOException();
         }
         assertThat(price, lessThan(20));
+    }
+
+    @TestFactory
+    Collection<DynamicTest> dynamicTestCollection()
+    {
+        return Arrays.asList(
+
+            dynamicTest("Dynamic test 1", () -> assertThat(5, lessThan(6))),
+                dynamicTest("Dynamic test 2", () -> assertEquals(4 , 2*2))
+                );
+
     }
 }
