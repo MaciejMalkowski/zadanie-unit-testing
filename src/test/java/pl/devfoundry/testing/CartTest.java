@@ -51,7 +51,7 @@ class CartTest {
                 () -> assertThat(cart.getOrders(), is(not(emptyCollectionOf(Order.class)))),
                 () -> {
                     List<Meal> mealList = cart.getOrders().get(0).getMeals();
-                    assertThat(mealList, nullValue());
+                    assertThat(mealList, is(empty()));
                 }
         );
     }

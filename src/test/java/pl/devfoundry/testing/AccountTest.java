@@ -2,6 +2,7 @@ package pl.devfoundry.testing;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -9,6 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
+@Tag("fries")
 class AccountTest {
     @Test
     void newlyCreatedAccountShouldNotBeActive()

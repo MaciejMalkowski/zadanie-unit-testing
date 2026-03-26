@@ -25,9 +25,9 @@ public class Account {
     {
         return defaultDeliveryAddress;
     }
-    public void setDefaultDeliveryAdress(Address defaultDeliveryAddress)
+    public void setDefaultDeliveryAdress(Address adress)
     {
-        defaultDeliveryAddress =  defaultDeliveryAddress;
+        defaultDeliveryAddress = adress;
     }
 
     public void activate()

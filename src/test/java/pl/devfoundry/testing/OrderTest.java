@@ -81,17 +81,19 @@ public class OrderTest {
     }
 
     @Test
-    void testIfTwoMealsListAreTheSame() {
+    void testIfTwoMealListsAreTheSame() {
+
+        //given
         Meal meal1 = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
         Meal meal3 = new Meal(11, "Kebab");
 
         List<Meal> meals1 = Arrays.asList(meal1, meal2);
-        List<Meal> meals2 = Arrays.asList(meal2, meal1);
+        List<Meal> meals2 = Arrays.asList(meal1, meal2);
 
+        //then
         assertThat(meals1, is(meals2));
 
-        assertThat(meals1, is(meals2));
     }
 
 }

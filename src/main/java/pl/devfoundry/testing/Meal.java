@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Meal {
     private int price;
+    private int quanity;
     private String name;
 
     public Meal(int price)
@@ -15,6 +16,16 @@ public class Meal {
     {
         this.price = price;
         this.name = name;
+    }
+
+    public Meal(int quanity, String name, int price) {
+        this.quanity = quanity;
+        this.name = name;
+        this.price = price;
+    }
+
+    public int getQuanity() {
+        return quanity;
     }
 
     public int getPrice()

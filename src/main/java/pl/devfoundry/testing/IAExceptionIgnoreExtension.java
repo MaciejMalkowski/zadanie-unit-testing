@@ -3,6 +3,7 @@ package pl.devfoundry. testing;
 import org.junit.jupiter.api.extension. ExtensionContext;
 import org. junit. jupiter.api.extension. TestExecutionExceptionHandler;
 
+import java.io.IOException;
 import java. util. logging.Logger;
 public class IAExceptionIgnoreExtension implements TestExecutionExceptionHandler {
 
@@ -10,13 +11,13 @@ public class IAExceptionIgnoreExtension implements TestExecutionExceptionHandler
             .getName());
 
     @Override
-    public void handleTestExecutionException(ExtensionContext extensionContext, Throwable
-            throwable) throws Throwable {
+    public void handleTestExecutionException(ExtensionContext extensionContext, Throwable throwable) throws Throwable {
 
-        if (throwable instanceof IllegalArgumentException) {
-            LOGGER.info("Just ignored IllegalArgumentException!");
-        } else {
-            throw throwable;
+        if (throwable instanceof IllegalArgumentException || throwable instanceof IOException) {
+            LOGGER.info("Ignored exception: " + throwable.getClass().getSimpleName());
+            return;
         }
+
+        throw throwable;
     }
 }
